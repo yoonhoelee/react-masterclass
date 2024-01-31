@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, {keyframes} from "styled-components";
 
 const Father = styled.div`
   display: flex;
@@ -25,6 +25,37 @@ const Circle = styled(Box)`
   border-radius: 50px;
 `;
 
+const rotationAnimation = keyframes`
+  0%{
+    transform: rotate(0deg);
+    border-radius: 0px;
+  }
+  50%{
+    transform: rotate(360deg);
+    border-radius: 100px;
+  }
+  100%{}
+`;
+
+const AnimationBox = styled.div`
+  height: 200px;
+  width: 200px;
+  background-color: tomato;
+  animation: ${rotationAnimation} 1s linear infinite;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  span{
+    font-size: 20px;
+    &:hover{
+      font-size: 40px;
+    }
+    &:active{
+      opacity: 0;
+    }
+  };
+`;
+
 const Text = styled.span`
   color: white;
 `;
@@ -40,6 +71,9 @@ function App() {
     <Input></Input>
     <Input></Input>
     <Input></Input>
+    <AnimationBox>
+      <span>Hey</span>
+    </AnimationBox>
   </Father>;
 }
 
