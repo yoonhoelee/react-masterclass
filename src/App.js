@@ -10,7 +10,7 @@ const Input = styled.input.attrs({required: true, minLength: 10})`
 
 const Btn = styled.button`
   color: white;
-  background-color: tomato;
+  background-color: ${props => props.theme.backgroundColor};
   border: 0;
   border-radius: 15px;
 `;
@@ -37,6 +37,13 @@ const rotationAnimation = keyframes`
   100%{}
 `;
 
+const Emoji = styled.span`
+  font-size: 36px;
+  &:hover{
+    font-size: 96px;
+  }
+`;
+
 const AnimationBox = styled.div`
   height: 200px;
   width: 200px;
@@ -45,16 +52,13 @@ const AnimationBox = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  span{
-    font-size: 20px;
-    &:hover{
-      font-size: 40px;
-    }
+  ${Emoji}{
     &:active{
       opacity: 0;
     }
   };
 `;
+
 
 const Text = styled.span`
   color: white;
@@ -72,7 +76,7 @@ function App() {
     <Input></Input>
     <Input></Input>
     <AnimationBox>
-      <span>Hey</span>
+      <Emoji>Hey</Emoji>
     </AnimationBox>
   </Father>;
 }
